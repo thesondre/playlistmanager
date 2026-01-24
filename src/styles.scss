@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+/*$themes: (
+ light: (
+   text: #080706,
+   background: #f9f8f6,
+   primary: #b0a668,
+   secondary: #d3ca94,
+   accent: #d3c671,
+ ),
+ dark: (
+   text: #f8f7f6,
+   background: #090806,
+   primary: #968d4f,
+   secondary: #6d632c,
+   accent: #8c7f2b,
+ ),
+);*/
+:root{
+    --text: #080706;
+    --background: #f9f8f6;
+    --primary: #b0a668;
+    --secondary: #d3ca94;
+    --accent: #d3c671;
+}
+
+body {
+    background-color: var(--background);
+}
+* {
+    margin: 0;
+    padding: 0;
+}

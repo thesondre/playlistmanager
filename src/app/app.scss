@@ -1,0 +1,10 @@
+.gridContainer {
+    margin: 20px;
+    height: calc(100vh - 40px);
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+}
+.gridItem {
+    border-radius: 20px;
+    background-color: var(--primary);
+}
