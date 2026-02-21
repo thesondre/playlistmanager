@@ -10,8 +10,6 @@ import { Apiservice } from '../apiservice';
 export class Settings {
   constructor(private apiService:Apiservice) {}
   getMp3(){
-    this.apiService.getConfig().subscribe((data:any)=> {
-      console.log(data)
-    });
-  }
+    console.log("GetMp3");
+  };
 }
