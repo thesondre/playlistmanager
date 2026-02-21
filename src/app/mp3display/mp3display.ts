@@ -14,10 +14,12 @@ export class Mp3display {
   constructor(private apiService:Apiservice){};
 
   mp3s:Mp3[] = []
-  
+ 
   ngOnInit() {
     this.apiService.getMp3s().subscribe((res:Mp3[])=> {
-      this.mp3s == res;
+      for (let mp3 in res){
+        this.mp3s.push(res[mp3])
+      }
     })
   }
 }

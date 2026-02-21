@@ -6,3 +6,37 @@
     justify-content: center;
     align-items: center;
 }
+
+.mp3Section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.mp3Container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    aspect-ratio: 1.61803398875/1;
+    width: 150px;
+    margin: 10px;
+    background-color: var(--secondary);
+    border-radius: 10px;
+    text-align: center;
+    overflow: hidden;
+}
+.mp3Title {
+    color: var(--text);
+}
+.mp3Artist{}
+.mp3Duration{}
+.mp3GlobalPath{
+    position: absolute;
+    font-size: 70%;
+    height: max(10px);
+    overflow-wrap: break-word;
+    bottom: 0;
+}
+
+.mp3RelativePath {display: none;}

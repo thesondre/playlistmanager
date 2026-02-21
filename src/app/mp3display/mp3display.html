@@ -1,4 +1,11 @@
 <section class="bar"><h1>Dette er ei program utvikla av Sondre</h1></section>
-<section>
-    <div *ngFor="let mp3 of mp3s">{{mp3.Title}}</div>
-</section>
+<section class="mp3Section">
+    @for (mp3 of mp3s; track mp3.Title) {
+        <div class="mp3Container">
+            <div class="mp3Title">{{ (mp3.Title.length>20)? (mp3.Title | slice:0:mp3.Title.lastIndexOf(" ", 24))+ "...":(mp3.Title) }}</div>
+            <div class="mp3Artist">{{ (mp3.Artist.length>25)? (mp3.Artist|slice:0:mp3.Artist.lastIndexOf(" ", 24))+ "...":(mp3.Artist) }}</div>
+            <div class="mp3Duration">{{ mp3.Duration }}</div>
+            <div class="mp3GlobalPath">{{mp3.globalPath}}</div>
+            <div class="mp3RelativePath">{{mp3.relativePath}}</div>
+        </div>
+    } 
