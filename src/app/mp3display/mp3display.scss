@@ -1,10 +1,37 @@
 .bar {
-    border-radius: 20px 20px 0 0;
+    position: relative;
+    border-radius: 20px;
     height: 80px;
     background-color: var(--secondary);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.bar div {
+    display: flex;
+    position: absolute;
+    bottom: 4px;
+    width: 60%;
+    height: 1.5rem;
+    border-radius: 10rem;
+    background-color: var(--background);
+    
+}
+.bar div input {
+    width: 80%;
+    height: 100%;
+    border: none;
+    outline: none;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--background);
+}
+.bar div select {
+    border-radius: 100rem;
+    border: none;
+    outline: none;
+    background-color: var(--background);
 }
 
 .mp3Section {
@@ -25,7 +52,7 @@
     border-radius: 10px;
     text-align: center;
     overflow: hidden;
-}
+} 
 .mp3Title {
     color: var(--text);
 }

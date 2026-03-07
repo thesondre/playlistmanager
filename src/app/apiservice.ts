@@ -7,6 +7,7 @@ export interface Mp3 {
   globalPath:String;
   relativePath:String;
   Duration:String;
+  Selected:Boolean;
 };
 @Injectable({
   providedIn: 'root',
