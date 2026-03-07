@@ -9,6 +9,11 @@ export interface Mp3 {
   Duration:string;
   Selected:Boolean;
 };
+
+export interface PlayList {
+  Title:string;
+  Tracks:Array<Object>;
+}
 @Injectable({
   providedIn: 'root',
 })
@@ -19,5 +24,9 @@ export class Apiservice {
   }
   getConfig() {
     return this.http.get("http://localhost:8000/config")
+  }
+
+  getPlaylists() {
+    return this.http.get<PlayList[]>("http://localhost:8000/playlists")
   }
 }
