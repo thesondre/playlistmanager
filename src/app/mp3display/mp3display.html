@@ -1,10 +1,9 @@
 <section class="bar">
     <div>
-        <input type="text" (input)="search($event)" >
-        <select name="searchBy" id="searchBy" [value]="">
+        <input type="text" (input)="search()" [(ngModel)]="searchquery" >
+        <select name="searchBy" id="searchBy" [(ngModel)]="searchBy" (change)="search()">
             <option value="Title">Title</option>
-            <option value="Title">Artist</option>
-            <option value="Title">Album</option>
+            <option value="Artist">Artist</option>
         </select>
     </div >
 </section>

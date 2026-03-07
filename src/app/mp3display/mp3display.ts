@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { Apiservice, Mp3} from '../apiservice';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-mp3display',
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './mp3display.html',
   styleUrl: './mp3display.scss',
 })
@@ -23,13 +24,22 @@ export class Mp3display {
     this.mp3s.sort(this.sorting)
   }
 
+  
+  searchquery:string = ""
+  searchBy:keyof Mp3 = "Title"
+  search(){
+    console.log(this.searchBy)
+    console.log()
+    if(this.searchBy) {
+      this.mp3s.sort((a:Mp3, b:Mp3) => {
+      if (a[this.searchBy].toString().toUpperCase().startsWith(this.searchquery.toUpperCase())){
+        return -1
+      }
+      return 1
+      });
+    }
+    
 
-  searching(a:Mp3, b:Mp3){
-
-  }
-  searchquery:String = "All"
-  search(event:InputEvent){
-    console.log(event)
   }
   
   sorting(a:Mp3, b:Mp3){
