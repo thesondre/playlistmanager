@@ -24,13 +24,21 @@ export class Mp3display {
     })
   }
 
-  selectMp3(i:Mp3, index:number){
-    i.Selected==true
-    //this.mp3s.splice(index, 1)
-    this.selectedMp3.push(i)
+  sorting(a:Mp3, b:Mp3){
+    if(a.Selected){
+      return -1
+    } else if (b.Selected) {
+      return 1
+    } else {
+      return 0
+    }
   }
-  deSelectMp3(i:Mp3, index:number){
-    this.selectedMp3.splice(index, 1)
-    this.mp3s.push(i)
+  selectMp3(i:Mp3, index:number){
+    if (i.Selected == undefined){
+      i.Selected=true
+    } else {
+      i.Selected = !i.Selected
+    }
+    this.mp3s.sort(this.sorting)
   }
 }

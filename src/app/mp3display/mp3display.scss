@@ -39,6 +39,7 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
 .mp3Container {
     display: flex;
     position: relative;
@@ -53,12 +54,24 @@
     text-align: center;
     overflow: hidden;
 } 
+.selected {
+    background-color: var(--accent);
+}
 .mp3Title {
     color: var(--text);
 }
-.mp3Artist{}
-.mp3Duration{}
+.mp3Artist{
+    font-size: 0.8rem;
+}
+.mp3Duration{
+    background-color:  var(--background);
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 20px;
+    font-family: "Black Ops One", system-ui;
+}
 .mp3GlobalPath{
+    display: none;
     position: absolute;
     font-size: 70%;
     height: max(10px);
