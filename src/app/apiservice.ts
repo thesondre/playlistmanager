@@ -16,4 +16,8 @@ export class Apiservice {
   getPlaylists() {
     return this.http.get<PlayList[]>("http://localhost:8000/playlists")
   }
+
+  createPlaylist(playlist:PlayList) {
+    this.http.post<PlayList>("http://localhost:8000/playlists", playlist)
+  }
 }

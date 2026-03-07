@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Apiservice } from '../apiservice';
 @Component({
   selector: 'app-create',
   imports: [],
@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './create.scss',
 })
 export class Create {
+  constructor(private apiService:Apiservice) {}
 
+  
 }
