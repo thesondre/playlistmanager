@@ -4,9 +4,9 @@ export interface Mp3 {
   Title:string;
   Artist:string;
   Album:string;
-  globalPath:String;
-  relativePath:String;
-  Duration:String;
+  globalPath:string;
+  relativePath:string;
+  Duration:string;
   Selected:Boolean;
 };
 @Injectable({

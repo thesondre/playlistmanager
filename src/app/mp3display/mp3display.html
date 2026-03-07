@@ -1,30 +1,16 @@
 <section class="bar">
     <div>
-        <input type="text">
-        <select name="searchBy" id="searchBy">
+        <input type="text" (input)="search()" [(ngModel)]="searchquery" >
+        <select name="searchBy" id="searchBy" [(ngModel)]="searchBy" (change)="search()">
             <option value="Title">Title</option>
-            <option value="Title">Artist</option>
-            <option value="Title">Album</option>
+            <option value="Artist">Artist</option>
         </select>
-    </div>
+    </div >
 </section>
 <section class="mp3Section">
-     @for (mp3 of selectedMp3; track mp3.Title) {
-        <div class="mp3Container" style="background-color: aqua;" (click)="deSelectMp3(mp3, $index)">
-            <div class="mp3Title">{{ (mp3.Title.length>20)? (mp3.Title | slice:0:mp3.Title.lastIndexOf(" ", 24))+ "...":(mp3.Title) }}</div>
-            <div class="mp3Artist">{{ (mp3.Artist.length>25)? (mp3.Artist|slice:0:mp3.Artist.lastIndexOf(" ", 24))+ "...":(mp3.Artist) }}</div>
-            <div class="mp3Duration">{{ mp3.Duration }}</div>
-            <div class="mp3GlobalPath">{{mp3.globalPath}}</div>
-            <div class="mp3RelativePath">{{mp3.relativePath}}</div>
-        </div>
-    } 
     @for (mp3 of mp3s; track mp3.Title) {
-        <div class="mp3Container" (click)="selectMp3(mp3, $index)">
-            @if (mp3.Selected == true) {
-                <div>
-                    <h1>Selected</h1>
-                </div>
-            }
+        <div class="mp3Container" (click)="selectMp3(mp3, $index)" [ngClass]="mp3.Selected ? 'selected': ''">
+            <!--<div>{{ mp3.Selected }}</div>-->
             <div class="mp3Title">{{ (mp3.Title.length>20)? (mp3.Title | slice:0:mp3.Title.lastIndexOf(" ", 24))+ "...":(mp3.Title) }}</div>
             <div class="mp3Artist">{{ (mp3.Artist.length>25)? (mp3.Artist|slice:0:mp3.Artist.lastIndexOf(" ", 24))+ "...":(mp3.Artist) }}</div>
             <div class="mp3Duration">{{ mp3.Duration }}</div>

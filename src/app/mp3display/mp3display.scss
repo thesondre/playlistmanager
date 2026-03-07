@@ -19,15 +19,20 @@
     
 }
 .bar div input {
-    width: 80%;
+    position: absolute;
     height: 100%;
+    width: 90%;
     border: none;
     outline: none;
-    margin-left: auto;
-    margin-right: auto;
+    left: 0.75rem;
+    translate: 50%, 0;
     background-color: var(--background);
 }
 .bar div select {
+    position: absolute;
+    transition: 1s;
+    right: 0;
+    height: 100%;
     border-radius: 100rem;
     border: none;
     outline: none;
@@ -38,7 +43,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    transition: 1s;
 }
+
 .mp3Container {
     display: flex;
     position: relative;
@@ -53,12 +60,24 @@
     text-align: center;
     overflow: hidden;
 } 
+.selected {
+    background-color: var(--accent);
+}
 .mp3Title {
     color: var(--text);
 }
-.mp3Artist{}
-.mp3Duration{}
+.mp3Artist{
+    font-size: 0.8rem;
+}
+.mp3Duration{
+    background-color:  var(--background);
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 20px;
+    font-family: "Black Ops One", system-ui;
+}
 .mp3GlobalPath{
+    display: none;
     position: absolute;
     font-size: 70%;
     height: max(10px);

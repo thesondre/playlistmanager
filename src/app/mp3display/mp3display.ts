@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { Apiservice, Mp3} from '../apiservice';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-mp3display',
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './mp3display.html',
   styleUrl: './mp3display.scss',
 })
@@ -14,23 +15,51 @@ export class Mp3display {
   constructor(private apiService:Apiservice){};
 
   mp3s:Mp3[] = []
-  selectedMp3:Mp3[] = []
   ngOnInit() {
-    this.selectedMp3 = []
     this.apiService.getMp3s().subscribe((res:Mp3[])=> {
       for (let mp3 in res){
         this.mp3s.push(res[mp3])
       }
     })
+    this.mp3s.sort(this.sorting)
   }
 
-  selectMp3(i:Mp3, index:number){
-    i.Selected==true
-    //this.mp3s.splice(index, 1)
-    this.selectedMp3.push(i)
+  
+  searchquery:string = ""
+  searchBy:keyof Mp3 = "Title"
+  search(){
+    console.log(this.searchBy)
+    console.log()
+    if(this.searchBy) {
+      this.mp3s.sort((a:Mp3, b:Mp3) => {
+      if (a[this.searchBy].toString().toUpperCase().startsWith(this.searchquery.toUpperCase())){
+        return -1
+      }
+      return 1
+      });
+    }
+    
+
   }
-  deSelectMp3(i:Mp3, index:number){
-    this.selectedMp3.splice(index, 1)
-    this.mp3s.push(i)
+  
+  sorting(a:Mp3, b:Mp3){
+    if(a.Selected){
+      return -1
+    } else if (b.Selected) {
+      return 1
+    } else if (a.Title.toUpperCase() < b.Title.toLocaleUpperCase()){
+      return -1
+    } else if (a.Title.toUpperCase() > b.Title.toLocaleUpperCase()){
+      return 1
+    }
+    return 0
+  }
+  selectMp3(i:Mp3, index:number){
+    if (i.Selected == undefined){
+      i.Selected=true
+    } else {
+      i.Selected = !i.Selected
+    }
+    this.mp3s.sort(this.sorting)
   }
 }
