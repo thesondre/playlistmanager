@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { BehaviorSubject } from 'rxjs';
 export interface Mp3 {
   Title:string;
   Artist:string;
@@ -12,7 +12,7 @@ export interface Mp3 {
 
 export interface PlayList {
   Title:string;
-  Tracks:Array<Object>;
+  Tracks:Array<{"path":""}>;
 }
 
 @Injectable({
@@ -21,7 +21,16 @@ export interface PlayList {
 
 
 export class DataService {
-  tracksFromPlaylist(){
+  
+  tracks:PlayList = {Title:"", Tracks:[]}
 
+  private trackSource = new BehaviorSubject<PlayList>(this.tracks)
+  currentTracks = this.trackSource.asObservable();
+
+  constructor(){}
+
+  tracksFromPlaylist(tracks:PlayList){
+    console.log("Next")
+    this.trackSource.next(tracks)
   } 
 }

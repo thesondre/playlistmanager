@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Apiservice } from '../apiservice';
 import { PlayList } from '../data-service';
-
+import { DataService } from '../data-service';
 @Component({
   selector: 'app-playlists',
   imports: [],
@@ -9,7 +9,7 @@ import { PlayList } from '../data-service';
   styleUrl: './playlists.scss',
 })
 export class Playlists {
-  constructor(private apiService:Apiservice){}
+  constructor(private apiService:Apiservice, private dataService:DataService){}
 
   playlists:PlayList[] = []
   ngOnInit() {
@@ -24,6 +24,6 @@ export class Playlists {
 
 
   onSelect(playlist:PlayList){
-    console.log(playlist.Tracks) 
+    this.dataService.tracksFromPlaylist(playlist)
   }
 }
