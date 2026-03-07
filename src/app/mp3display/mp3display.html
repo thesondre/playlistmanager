@@ -1,12 +1,12 @@
 <section class="bar">
     <div>
-        <input type="text">
-        <select name="searchBy" id="searchBy">
+        <input type="text" (input)="search($event)" >
+        <select name="searchBy" id="searchBy" [value]="">
             <option value="Title">Title</option>
             <option value="Title">Artist</option>
             <option value="Title">Album</option>
         </select>
-    </div>
+    </div >
 </section>
 <section class="mp3Section">
     @for (mp3 of mp3s; track mp3.Title) {
