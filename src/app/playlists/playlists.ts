@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Apiservice, PlayList } from '../apiservice';
+import { Apiservice } from '../apiservice';
+import { PlayList } from '../data-service';
 
 @Component({
   selector: 'app-playlists',
@@ -21,4 +22,8 @@ export class Playlists {
     
   };
 
+
+  onSelect(playlist:PlayList){
+    console.log(playlist.Tracks) 
+  }
 }

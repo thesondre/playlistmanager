@@ -9,3 +9,23 @@
 .bar h1 {
     text-align: center;
 }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.item {
+    align-self: center;
+    width: 90%;
+    height: 2rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: var(--secondary);
+    border-radius: 10px/10px;
+    text-align: center;
+} 
+.item:hover {
+    background-color: var(--accent);
+}

@@ -60,6 +60,9 @@
     text-align: center;
     overflow: hidden;
 } 
+.mp3Container:hover {
+    background-color: var(--accent);
+}
 .selected {
     background-color: var(--accent);
 }

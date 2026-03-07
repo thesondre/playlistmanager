@@ -1,6 +1,6 @@
 <section class="bar"><H1>Spelelistar</H1></section>
-<section>
+<section class="container">
     @for (playlist of playlists; track $index) {
-        <div>{{playlist.Title}}</div>
+        <div class="item" (click)="onSelect(playlist)">{{playlist.Title}}</div>
     }
 </section>

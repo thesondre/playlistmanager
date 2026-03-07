@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Apiservice, Mp3} from '../apiservice';
+import { Apiservice} from '../apiservice';
+import { Mp3 } from '../data-service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -28,8 +29,6 @@ export class Mp3display {
   searchquery:string = ""
   searchBy:keyof Mp3 = "Title"
   search(){
-    console.log(this.searchBy)
-    console.log()
     if(this.searchBy) {
       this.mp3s.sort((a:Mp3, b:Mp3) => {
       if (a[this.searchBy].toString().toUpperCase().startsWith(this.searchquery.toUpperCase())){
@@ -38,8 +37,6 @@ export class Mp3display {
       return 1
       });
     }
-    
-
   }
   
   sorting(a:Mp3, b:Mp3){

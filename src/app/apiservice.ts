@@ -1,19 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-export interface Mp3 {
-  Title:string;
-  Artist:string;
-  Album:string;
-  globalPath:string;
-  relativePath:string;
-  Duration:string;
-  Selected:Boolean;
-};
-
-export interface PlayList {
-  Title:string;
-  Tracks:Array<Object>;
-}
+import { Mp3, PlayList } from './data-service';
 @Injectable({
   providedIn: 'root',
 })
