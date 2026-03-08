@@ -1,0 +1,37 @@
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 50%;
+    width: 50%;
+    translate: 50% 50%;
+    background-color: var(--secondary);
+    border-radius: 20px/20px;
+}
+section h1 {
+    text-align: center;
+}
+section input {
+    width: 50%;
+    height: 1rem;
+    border-radius: 1rem;
+    outline: none;
+    border: none;
+}
+section button{
+    font-size: large;
+}
+section img {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    height: 1rem;
+    text-align: center;
+    border-radius: 1rem;
+    aspect-ratio: 1/1;
+    translate: 50% -50%;
+}
+section img:hover {
+    background-color: var(--primary);
+}

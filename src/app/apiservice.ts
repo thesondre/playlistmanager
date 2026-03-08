@@ -1,14 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-export interface Mp3 {
-  Title:string;
-  Artist:string;
-  Album:string;
-  globalPath:string;
-  relativePath:string;
-  Duration:string;
-  Selected:Boolean;
-};
+import { Mp3, PlayList, PlayListC } from './data-service';
 @Injectable({
   providedIn: 'root',
 })
@@ -19,5 +11,19 @@ export class Apiservice {
   }
   getConfig() {
     return this.http.get("http://localhost:8000/config")
+  }
+
+  getPlaylists() {
+    return this.http.get<PlayList[]>("http://localhost:8000/playlists")
+  }
+
+  createPlaylist(playlist:PlayListC) {
+    console.log(playlist)
+    this.http.post<PlayListC>("http://localhost:8000/playlists", playlist, {
+      reportProgress: true,
+      observe: "events"
+    }).subscribe((res)=>{
+      console.log(res)
+    })
   }
 }

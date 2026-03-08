@@ -8,7 +8,7 @@
     justify-content: center;
     align-items: center;
 }
-.bar div {
+.search {
     display: flex;
     position: absolute;
     bottom: 4px;
@@ -18,7 +18,7 @@
     background-color: var(--background);
     
 }
-.bar div input {
+.search input {
     position: absolute;
     height: 100%;
     width: 90%;
@@ -28,7 +28,7 @@
     translate: 50%, 0;
     background-color: var(--background);
 }
-.bar div select {
+.search select {
     position: absolute;
     transition: 1s;
     right: 0;
@@ -40,12 +40,17 @@
 }
 
 .mp3Section {
+    height: calc(100vh - 100px);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     transition: 1s;
+    overflow-y: auto;
+    
 }
-
+::-webkit-scrollbar {
+    display: none;
+}
 .mp3Container {
     display: flex;
     position: relative;
@@ -60,6 +65,9 @@
     text-align: center;
     overflow: hidden;
 } 
+.mp3Container:hover {
+    background-color: var(--accent);
+}
 .selected {
     background-color: var(--accent);
 }
@@ -86,3 +94,19 @@
 }
 
 .mp3RelativePath {display: none;}
+
+app-create {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.26);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(5px);
+    //border: 1px solid rgba(255, 255, 255, 0.3);
+}
