@@ -80,7 +80,6 @@ export class Mp3display {
 
   addSelected:Boolean = false
   selectDeAll(){
-    let toggle = false
     if(this.addSelected) {
       this.addSelected = !this.addSelected
     } else {
@@ -89,5 +88,10 @@ export class Mp3display {
     for(let mp3 of this.mp3s) {
       mp3.Selected = this.addSelected
     }
+  }
+
+  UIToggle:Boolean = false;
+  UIToggleF(){
+    this.UIToggle = !this.UIToggle
   }
 }

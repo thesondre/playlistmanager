@@ -15,6 +15,11 @@ export interface PlayList {
   Tracks:Array<{"path":""}>;
 }
 
+export interface PlayListC {
+  Title:string;
+  Tracks:Array<string>;
+}
+
 @Injectable({
   providedIn: 'root',
 })

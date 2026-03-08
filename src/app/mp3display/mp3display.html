@@ -1,6 +1,6 @@
 <section class="bar">
     <div>
-        <button>Lag/Oppdater speleliste</button>
+        <button (click)="UIToggleF()">Lag/Oppdater speleliste</button>
         <button (click)="selectDeAll()">Alle</button>
     </div>
     
@@ -24,5 +24,5 @@
         </div>
     } 
 </section>
-@if (true) {<app-create></app-create>}
+@if (UIToggle) {<app-create [mp3s]="mp3s" (UIToggle)="UIToggleF()"></app-create>}
 

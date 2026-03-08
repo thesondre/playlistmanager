@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Mp3, PlayList } from './data-service';
+import { Mp3, PlayList, PlayListC } from './data-service';
 @Injectable({
   providedIn: 'root',
 })
@@ -17,7 +17,13 @@ export class Apiservice {
     return this.http.get<PlayList[]>("http://localhost:8000/playlists")
   }
 
-  createPlaylist(playlist:PlayList) {
-    this.http.post<PlayList>("http://localhost:8000/playlists", playlist)
+  createPlaylist(playlist:PlayListC) {
+    console.log(playlist)
+    this.http.post<PlayListC>("http://localhost:8000/playlists", playlist, {
+      reportProgress: true,
+      observe: "events"
+    }).subscribe((res)=>{
+      console.log(res)
+    })
   }
 }

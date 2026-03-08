@@ -1,6 +1,6 @@
 <section>
-    <img src="X.png" alt="Lukk">
+    <img src="X.png" alt="Lukk" (click)="destroy()">
     <h1>Lagre</h1>
-    <input type="text">
-    <button>Lag</button>
+    <input type="text" [(ngModel)]="title">
+    <button (click)="create()">Lag</button>
 </section>
